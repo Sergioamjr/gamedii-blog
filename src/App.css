@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-1 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.font-2 {
+  font-family: "Merriweather", serif;
+}
+
+:root {
+  --dark: #2c3e50;
+  --danger: #e74c3c;
+  --light: #ecf0f1;
+  --primary: #3498db;
+  --darkPrimary: #2980b9;
+  --theme: #e90117;
+  --themeDark: #680a0c;
+  --gray: #606062;
+}
+
+img {
+  width: 100%;
+  border-radius: 4px;
+  max-width: 100%;
+}
