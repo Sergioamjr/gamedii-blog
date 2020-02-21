@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
-import { colors, fontSize } from "./../../design/theme";
+import { css, jsx } from "@emotion/core"
+import { colors, fontSize } from "./../../design/theme"
 
 const tags = css`
   color: #fff;
@@ -10,10 +10,10 @@ const tags = css`
   margin-bottom: 10px;
   font-size: ${fontSize.small};
   background: ${colors.danger};
-`;
+`
 
 const Tags = ({ name }) => {
-  return <span css={tags}>{name}</span>;
-};
+  return <span css={tags}>{name}</span>
+}
 
-export default Tags;
+export default Tags

@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/core";
-import { colors, fontSize } from "./theme";
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { colors, fontSize } from "./theme"
 
 export const globalStyle = css`
   * {
@@ -10,36 +10,42 @@ export const globalStyle = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-`;
+`
 
 export const Container = styled.div`
   max-width: ${props => (props.small ? "700px" : "1200px")};
   padding: 0 15px;
   width: 100%;
   margin: 0 auto;
-`;
+`
 
 export const pageTitle = css`
   font-size: ${fontSize.large};
   margin-bottom: 16px;
   z-index: -1;
   color: #424242;
-`;
+  font-family: "Open Sans", sans-serif;
+`
 
 export const mgBottom = css`
   margin-bottom: 8px;
-`;
+`
 
 export const secondTitle = css`
   ${mgBottom};
+  font-family: "Open Sans", sans-serif;
   color: ${colors.dark};
   font-size: ${fontSize.medium};
   font-weight: bold;
-`;
+`
 
 export const largeMgBottom = css`
   margin-bottom: 20px;
-`;
+`
+
+export const xLargeMgBottom = css`
+  margin-bottom: 40px;
+`
 
 export const text = css`
   color: ${colors.black};
@@ -48,38 +54,40 @@ export const text = css`
   text-align: justify;
   font-family: "Merriweather", serif;
   margin-bottom: 16px;
-`;
+`
 
 export const thirdTitle = css`
   ${mgBottom};
   color: ${colors.dark};
   font-size: 20px;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
-`;
+`
 
 export const liStyle = css`
   margin-left: 20px;
   list-style-type: disc;
-`;
+`
 
 export const wrapStyle = css`
   display: flex;
   flex-wrap: wrap;
-`;
+`
 
 export const linkStyle = css`
+  font-family: "Open Sans", sans-serif;
   line-height: 1.8;
   color: var(--theme);
   &:hover {
     color: var(--themeDark);
   }
-`;
+`
 
 export const grid = css`
   display: flex;
   margin: 0 -15px;
   flex-wrap: wrap;
-`;
+`
 
 export const Row = styled.div`
   width: 100%;
@@ -90,4 +98,4 @@ export const Row = styled.div`
   @media screen and (min-width: 992px) {
     width: ${({ md }) => (md ? `${md}%` : "100%")};
   }
-`;
+`

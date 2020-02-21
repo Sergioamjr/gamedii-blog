@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
-// import { colors } from "../../design/theme";
 import { Container } from "../../design"
 import logo from "./../../assets/logop.jpg"
 
@@ -48,17 +47,17 @@ const Header = () => {
         <nav css={alignCenter}>
           <ul css={justifyContent}>
             <li css={liStyle}>
-              <a css={lightColor} href="/#">
+              <a className="font-1" css={lightColor} href="/#">
                 Início
               </a>
             </li>
             <li css={liStyle}>
-              <a css={lightColor} href="/#">
+              <a className="font-1" css={lightColor} href="/#">
                 Categorias
               </a>
             </li>
             <li css={liStyle}>
-              <a css={lightColor} href="/#">
+              <a className="font-1" css={lightColor} href="/#">
                 Contato
               </a>
             </li>

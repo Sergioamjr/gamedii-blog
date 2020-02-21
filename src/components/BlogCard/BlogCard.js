@@ -1,48 +1,38 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
-import { colors, fontSize } from "./../../design/theme";
-import { linkStyle } from "../../design";
+import { jsx } from "@emotion/core"
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
+import {
+  linkStyle,
+  secondTitle,
+  text,
+  mgBottom,
+  xLargeMgBottom,
+} from "../../design"
 
-const mgBottom = css`
-  margin-bottom: 8px;
-`;
-
-const largeMgBottom = css`
-  margin-bottom: 40px;
-`;
-
-const title = css`
-  ${mgBottom};
-  color: #424242;
-  font-size: ${fontSize.medium};
-  font-weight: bold;
-`;
-
-const text = css`
-  line-height: 1.8;
-  font-size: 16px;
-  color: ${colors.black};
-  ${mgBottom}
-`;
-
-const BlogCard = () => {
+const BlogCard = ({ title, thumbnail, excerpt, path, label }) => {
   return (
-    <div css={largeMgBottom}>
-      <img
-        alt="thumbnail"
-        src="https://www.saude.novartis.com.br/enxaqueca/wp-content/uploads/2018/10/4-3-enxaqueca-e-vida-social.jpg"
-      />
-      <p css={title}>Vida Social com DII</p>
-      <p className="font-2" css={text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit
-        nec ipsum ac tristique. Nunc erat orci, scelerisque eget nisi quis,
-        efficitur consequat magna...
-      </p>
-      <a href="#conteudo" css={linkStyle}>
-        Continuar lendo
-      </a>
+    <div css={xLargeMgBottom}>
+      <img css={mgBottom} alt="thumbnail" src={thumbnail} />
+      <p css={secondTitle}>{title}</p>
+      <div css={text} dangerouslySetInnerHTML={{ __html: excerpt }} />
+      <Link css={linkStyle} to={`/${path}`}>
+        {label}
+      </Link>
     </div>
-  );
-};
+  )
+}
 
-export default BlogCard;
+BlogCard.propTypes = {
+  thumbnail: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  label: PropTypes.string,
+  excerpt: PropTypes.string,
+  path: PropTypes.string,
+}
+
+BlogCard.defaultProps = {
+  label: "Continuar lendo",
+}
+
+export default BlogCard

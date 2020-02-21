@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
+import { graphql } from "gatsby"
 import Header from "./../components/Header"
 import { Container, pageTitle, grid, Row } from "./../design"
 import BlogCard from "./../components/BlogCard"
@@ -33,18 +34,29 @@ const button = css`
   top: 1px;
 `
 
-const Home = () => {
+const Home = props => {
+  const data = props.data.allWordpressPost.edges
   return (
     <div className="App">
       <Header />
       <Container>
         <h2 css={pageTitle}>Publicações</h2>
         <div css={grid}>
-          {[1, 2, 3].map(i => (
-            <Row sm={50} md={33} key={i}>
-              <BlogCard />
-            </Row>
-          ))}
+          {data.map(({ node }) => {
+            const { title, id, path, excerpt, featured_media } = node
+            const thumbnail =
+              featured_media.localFile.childImageSharp.original.src
+            return (
+              <Row sm={50} md={33} key={id}>
+                <BlogCard
+                  thumbnail={thumbnail}
+                  path={path}
+                  title={title}
+                  excerpt={excerpt}
+                />
+              </Row>
+            )
+          })}
         </div>
       </Container>
       <div css={footer}>
@@ -65,3 +77,31 @@ const Home = () => {
 }
 
 export default Home
+
+export const pageQuery = graphql`
+  query {
+    allWordpressPost {
+      edges {
+        node {
+          id
+          title
+          path
+          excerpt
+          featured_media {
+            alt_text
+            caption
+            localFile {
+              childImageSharp {
+                original {
+                  width
+                  height
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
