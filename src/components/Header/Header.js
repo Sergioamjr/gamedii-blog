@@ -50,19 +50,9 @@ const Header = () => {
         <nav css={alignCenter}>
           <ul css={justifyContent}>
             <li css={liStyle}>
-              <a className="font-1" css={lightColor} href="/#">
+              <Link className="font-1" css={lightColor} to="/">
                 Início
-              </a>
-            </li>
-            <li css={liStyle}>
-              <a className="font-1" css={lightColor} href="/#">
-                Categorias
-              </a>
-            </li>
-            <li css={liStyle}>
-              <a className="font-1" css={lightColor} href="/#">
-                Contato
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

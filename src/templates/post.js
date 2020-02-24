@@ -3,15 +3,9 @@
 import { jsx } from "@emotion/core"
 import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
-import Header from "./../components/Header"
-import {
-  Container,
-  pageTitle,
-  text,
-  linkStyle,
-  xLargeMgBottom,
-} from "./../design"
+import { pageTitle, text, linkStyle, xLargeMgBottom } from "./../design"
 import Share from "../components/Share"
+import Wrapper from "../components/Wrapper"
 
 const Single = ({ data }) => {
   const {
@@ -20,9 +14,8 @@ const Single = ({ data }) => {
   const thumbnail = featured_media.localFile.childImageSharp.original.src
 
   return (
-    <div className="App">
-      <Header />
-      <Container id="conteudo" small>
+    <Wrapper small>
+      <div>
         <Link css={linkStyle} to="/">
           Voltar
         </Link>
@@ -32,8 +25,8 @@ const Single = ({ data }) => {
           <img src={thumbnail} />
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
         </article>
-      </Container>
-    </div>
+      </div>
+    </Wrapper>
   )
 }
 
