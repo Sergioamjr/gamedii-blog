@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
 import { graphql } from "gatsby"
+import PropTypes from "prop-types"
 import Header from "./../components/Header"
 import { Container, pageTitle, grid, Row } from "./../design"
 import BlogCard from "./../components/BlogCard"
@@ -77,6 +78,30 @@ const Home = props => {
 }
 
 export default Home
+
+Home.propTypes = {
+  data: PropTypes.shape({
+    allWordpressPost: PropTypes.shape({
+      edges: PropTypes.arrayOf({
+        node: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          id: PropTypes.string.isRequired,
+          path: PropTypes.string.isRequired,
+          excerpt: PropTypes.string.isRequired,
+          featured_media: PropTypes.shape({
+            localFile: PropTypes.shape({
+              childImageSharp: PropTypes.shape({
+                original: PropTypes.shape({
+                  src: PropTypes.string.isRequired,
+                }),
+              }),
+            }),
+          }),
+        }),
+      }),
+    }),
+  }),
+}
 
 export const pageQuery = graphql`
   query {

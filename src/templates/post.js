@@ -2,15 +2,16 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core"
 import { graphql, Link } from "gatsby"
+import PropTypes from "prop-types"
 import Header from "./../components/Header"
 import {
   Container,
   pageTitle,
-  largeMgBottom,
   text,
   linkStyle,
   xLargeMgBottom,
 } from "./../design"
+import Share from "../components/Share"
 
 const Single = ({ data }) => {
   const {
@@ -27,6 +28,7 @@ const Single = ({ data }) => {
         </Link>
         <article className="post-content" css={xLargeMgBottom}>
           <h2 css={pageTitle}>{title}</h2>
+          <Share />
           <img src={thumbnail} />
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
         </article>
@@ -36,6 +38,27 @@ const Single = ({ data }) => {
 }
 
 export default Single
+
+Single.propTypes = {
+  data: PropTypes.shape({
+    wordpressPost: PropTypes.shape({
+      content: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+      excerpt: PropTypes.string.isRequired,
+      featured_media: PropTypes.shape({
+        localFile: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            original: PropTypes.shape({
+              src: PropTypes.string.isRequired,
+            }),
+          }),
+        }),
+      }),
+    }),
+  }),
+}
 
 export const pageQuery = graphql`
   query($id: String!) {
