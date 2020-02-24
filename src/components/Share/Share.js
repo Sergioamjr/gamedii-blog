@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
+import PropTypes from "prop-types"
 import { WhatsAppIcon, FacebookIcon, TwitterIcon } from "../../design/icons"
 
 const list = css`
@@ -14,7 +15,7 @@ const list = css`
 const text = css`
   color: #333;
 `
-const Share = () => {
+const Share = ({ link, title }) => {
   return (
     <div>
       <p css={text} className="font-1">
@@ -22,17 +23,29 @@ const Share = () => {
       </p>
       <ul>
         <li css={list}>
-          <a href="#">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`whatsapp://send?text=Olá, encontrei artigo ${title} e gostaria de compartilhar com você ${link}`}
+          >
             <WhatsAppIcon />
           </a>
         </li>
         <li css={list}>
-          <a href="#">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://www.facebook.com/sharer/sharer.php?u=#${link}`}
+          >
             <FacebookIcon />
           </a>
         </li>
         <li css={list}>
-          <a href="#">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://twitter.com/intent/tweet?text=Veja sobre ${title} no blog da Gamedii ${link}`}
+          >
             <TwitterIcon />
           </a>
         </li>
@@ -42,3 +55,8 @@ const Share = () => {
 }
 
 export default Share
+
+Share.propTypes = {
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+}

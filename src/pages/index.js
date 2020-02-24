@@ -3,14 +3,15 @@
 import { jsx } from "@emotion/core"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import { grid, Row } from "./../design"
+import { grid, Row, pageTitle } from "./../design"
 import BlogCard from "./../components/BlogCard"
 import Wrapper from "../components/Wrapper"
 
 const Home = props => {
   const data = props.data.allWordpressPost.edges
   return (
-    <Wrapper title="Publicações">
+    <Wrapper>
+      <h2 css={pageTitle}>Publicações</h2>
       <div css={grid}>
         {data.map(({ node }) => {
           const { title, id, path, excerpt, featured_media } = node

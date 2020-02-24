@@ -6,22 +6,25 @@ import PropTypes from "prop-types"
 import { pageTitle, text, linkStyle, xLargeMgBottom } from "./../design"
 import Share from "../components/Share"
 import Wrapper from "../components/Wrapper"
+import { returnLocationProperty } from "../components/Wrapper/Wrapper"
 
 const Single = ({ data }) => {
   const {
-    wordpressPost: { title, content, featured_media },
+    wordpressPost: { title, content, featured_media, excerpt },
   } = data
   const thumbnail = featured_media.localFile.childImageSharp.original.src
 
+  const href = returnLocationProperty("href")
+
   return (
-    <Wrapper small>
+    <Wrapper small thumbnail={thumbnail} title={title} description={excerpt}>
       <div>
         <Link css={linkStyle} to="/">
           Voltar
         </Link>
         <article className="post-content" css={xLargeMgBottom}>
           <h2 css={pageTitle}>{title}</h2>
-          <Share />
+          <Share title={title} link={href} />
           <img src={thumbnail} />
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
         </article>

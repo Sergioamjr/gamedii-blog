@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Default Starter",
+    title: "Blog Gamedii",
     description:
-      "Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.",
+      "Blog destinado a pacientes portadores de Doença de Crohne Retocolite. Escrito por Sérgio Júnior com suporte da equipe Gamedii do Hospital Padre Bento de Guarulhos.",
     author: "@gatsbyjs",
   },
   plugins: [
