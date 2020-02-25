@@ -9,6 +9,7 @@ import {
   mgBottom,
   xLargeMgBottom,
 } from "../../design"
+import { replaceWpPrefix } from "../../utils"
 
 const BlogCard = ({ title, thumbnail, excerpt, path, label }) => {
   return (
@@ -16,7 +17,7 @@ const BlogCard = ({ title, thumbnail, excerpt, path, label }) => {
       <img css={mgBottom} alt="thumbnail" src={thumbnail} />
       <p css={secondTitle}>{title}</p>
       <div css={text} dangerouslySetInnerHTML={{ __html: excerpt }} />
-      <Link css={linkStyle} to={`/${path}`}>
+      <Link css={linkStyle} to={`/${replaceWpPrefix(path)}`}>
         {label}
       </Link>
     </div>

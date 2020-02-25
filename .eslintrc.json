@@ -15,6 +15,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "ignorePatterns": ["gatsby-config.js", "gatsby-browser.js", "gatsby-node.js"],
   "plugins": ["react"],
   "rules": {
     "indent": ["error", 2],

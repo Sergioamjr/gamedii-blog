@@ -38,13 +38,22 @@ const Footer = () => {
             </p>
             <ul>
               <li>
-                <a css={linkStyle} href="/">
+                <a
+                  css={linkStyle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.facebook.com/gamedii/"
+                >
                   Facebook
                 </a>
               </li>
               <li>
-                <a css={linkStyle} href="/">
-                  Twitter
+                <a
+                  css={linkStyle}
+                  rel="noopener noreferrer"
+                  href="https://www.instagram.com/gamedii/"
+                >
+                  Instagram
                 </a>
               </li>
             </ul>

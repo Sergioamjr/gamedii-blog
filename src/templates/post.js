@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import { pageTitle, text, linkStyle, xLargeMgBottom } from "./../design"
 import Share from "../components/Share"
 import Wrapper from "../components/Wrapper"
-import { returnLocationProperty } from "../components/Wrapper/Wrapper"
+import { returnLocationProperty } from "../utils"
 
 const Single = ({ data }) => {
   const {

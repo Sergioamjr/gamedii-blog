@@ -1,14 +1,8 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import ThumbnailDefault from "./../../assets/thumbnail.jpg"
 
 const SEO = ({ description, title, thumbnail, origin, href }) => {
   const { site } = useStaticQuery(
@@ -36,14 +30,8 @@ const SEO = ({ description, title, thumbnail, origin, href }) => {
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={href} />
-
-      {thumbnail && (
-        <meta property="og:image" content={`${origin}${thumbnail}`} />
-      )}
-      {thumbnail && (
-        <meta property="witter:image" content={`${origin}${thumbnail}`} />
-      )}
-
+      <meta property="og:image" content={`${origin}${thumbnail}`} />
+      <meta property="witter:image" content={`${origin}${thumbnail}`} />
       <meta property="og:site_name" content={site.siteMetadata.title} />
     </Helmet>
   )
@@ -51,7 +39,7 @@ const SEO = ({ description, title, thumbnail, origin, href }) => {
 
 SEO.defaultProps = {
   description: "",
-  thumbnail: "",
+  thumbnail: ThumbnailDefault,
 }
 
 SEO.propTypes = {
