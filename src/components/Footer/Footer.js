@@ -28,8 +28,19 @@ const Footer = () => {
               Gamedii
             </p>
             <p className="font-1" css={mgBottom}>
-              GAMEDII - Grupo de Assistência Multiprofissional em Estomias e
-              Doença Inflamatória Intestinal
+              Blog destinado para pacientes portadores de Doenças Inflamatórias
+              Intestinais, escrito por Sérgio Júnior, também autor do blog{" "}
+              <a
+                css={linkStyle}
+                rel="noopener noreferrer"
+                href="http://diariodeumcrohnista.com.br/"
+                target="_blank"
+              >
+                Diário de um Crohnista
+              </a>
+              , com suporte da GAMEDII - Grupo de Assistência Multiprofissional
+              em Estomias e Doença Inflamatória Intestinal da cidade de
+              Guarulhos.
             </p>
           </Row>
           <Row sm={50} md={30}>
@@ -54,6 +65,15 @@ const Footer = () => {
                   href="https://www.instagram.com/gamedii/"
                 >
                   Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  css={linkStyle}
+                  rel="noopener noreferrer"
+                  href="https://www.gamedii.com.br/"
+                >
+                  Website Oficial
                 </a>
               </li>
             </ul>

@@ -11,7 +11,7 @@ const disqusConfig = ({ url, id }) => {
   ;(function() {
     var d = document,
       s = d.createElement("script")
-    s.src = "https://sergiojunior-netlify.disqus.com/embed.js"
+    s.src = "https://blog-gamedii.disqus.com/embed.js"
     s.setAttribute("data-timestamp", +new Date())
     ;(d.head || d.body).appendChild(s)
   })()
