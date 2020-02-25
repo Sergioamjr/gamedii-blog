@@ -22,8 +22,8 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-source-wordpress": "^3.1.62",
     "gatsby-transformer-sharp": "^2.3.13",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
+    "husky": ">=4",
+    "lint-staged": ">=10",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -51,5 +51,13 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,md}": "prettier --write"
   }
 }
