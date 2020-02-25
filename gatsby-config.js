@@ -46,6 +46,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-64953806-7",
+        head: true,
+        exclude: [],
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         baseUrl: "blog.gamedii.com.br/wp/",
