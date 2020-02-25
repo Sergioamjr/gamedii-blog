@@ -29,6 +29,12 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        src: "https://blog-gamedii.disqus.com/count.js",
+      },
+    },
+    {
       resolve: "gatsby-plugin-prefetch-google-fonts",
       options: {
         fonts: [
