@@ -14,8 +14,12 @@ import { replaceWpPrefix } from "../../utils"
 const BlogCard = ({ title, thumbnail, excerpt, path, label }) => {
   return (
     <div css={xLargeMgBottom}>
-      <img css={mgBottom} alt="thumbnail" src={thumbnail} />
-      <p css={secondTitle}>{title}</p>
+      <Link to={`/${replaceWpPrefix(path)}`}>
+        <img css={mgBottom} alt="thumbnail" src={thumbnail} />
+      </Link>
+      <Link to={`/${replaceWpPrefix(path)}`}>
+        <p css={secondTitle}>{title}</p>
+      </Link>
       <div css={text} dangerouslySetInnerHTML={{ __html: excerpt }} />
       <Link css={linkStyle} to={`/${replaceWpPrefix(path)}`}>
         {label}
