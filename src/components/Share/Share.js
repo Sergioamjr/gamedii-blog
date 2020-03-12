@@ -16,6 +16,10 @@ const text = css`
   color: #333;
 `
 const Share = ({ link, title }) => {
+  console.log("link", link)
+  if (!link) {
+    return null
+  }
   return (
     <div>
       <p css={text} className="font-1">
