@@ -7,11 +7,11 @@ import { pageTitle, text, linkStyle, xLargeMgBottom } from "./../design"
 import Share from "../components/Share"
 import Wrapper from "../components/Wrapper"
 import { returnLocationProperty } from "../utils"
-import Disqus from "../components/Discus"
+// import Disqus from "../components/Discus"
 
 const Single = ({ data }) => {
   const {
-    wordpressPost: { title, content, id, featured_media, excerpt },
+    wordpressPost: { title, content, featured_media, excerpt },
   } = data
   const thumbnail = featured_media.localFile.childImageSharp.original.src
 
@@ -28,7 +28,7 @@ const Single = ({ data }) => {
           <Share title={title} link={href} />
           <img src={thumbnail} />
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
-          <Disqus url={href} id={id} />
+          {/* <Disqus url={href} id={id} /> */}
         </article>
       </div>
     </Wrapper>
