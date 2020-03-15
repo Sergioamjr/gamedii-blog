@@ -7,6 +7,12 @@ const footer = css`
   padding: 40px 0;
   background: #212121;
   color: #fff;
+  a {
+    color: #3498db;
+    &:hover {
+      color: #2980b9;
+    }
+  }
 `
 
 const GamediiLogo = css`
@@ -18,6 +24,11 @@ const GamediiLogo = css`
   margin-bottom: 20px;
 `
 
+const footerText = css`
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.8;
+`
+
 const Footer = () => {
   return (
     <div css={footer}>
@@ -27,11 +38,16 @@ const Footer = () => {
             <p className="font-1" css={GamediiLogo}>
               Gamedii
             </p>
-            <p className="font-1" css={mgBottom}>
+            <p
+              css={css`
+                ${footerText}
+                ${mgBottom}
+              `}
+              className="font-1"
+            >
               Blog destinado para pacientes portadores de Doenças Inflamatórias
               Intestinais, escrito por Sérgio Júnior, também autor do blog{" "}
               <a
-                css={linkStyle}
                 rel="noopener noreferrer"
                 href="http://diariodeumcrohnista.com.br/"
                 target="_blank"
@@ -44,7 +60,7 @@ const Footer = () => {
             </p>
           </Row>
           <Row sm={50} md={30}>
-            <p className="font-1" css={mgBottom}>
+            <p className="font-1" css={footerText}>
               Nos siga nas redes sociais:
             </p>
             <ul>
@@ -58,15 +74,17 @@ const Footer = () => {
                   Facebook
                 </a>
               </li>
-              <li>
-                <a
-                  css={linkStyle}
-                  rel="noopener noreferrer"
-                  href="https://www.instagram.com/gamedii/"
-                >
-                  Instagram
-                </a>
-              </li>
+              {false && (
+                <li>
+                  <a
+                    css={linkStyle}
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/gamedii/"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   css={linkStyle}

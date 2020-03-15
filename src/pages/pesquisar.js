@@ -12,6 +12,7 @@ import Wrapper from "../components/Wrapper"
 import { replaceWpPrefix } from "../utils"
 
 const urlToFetch = "http://blog.gamedii.com.br/wp/wp-json/wp/v2/posts?search="
+const delayToFetch = 1000
 
 const inputStyle = css`
   width: 100%;
@@ -22,7 +23,7 @@ const inputStyle = css`
   margin-bottom: 5px;
 `
 
-const Search = () => {
+const Search = props => {
   const fetchRef = useRef(null)
   const [query, setQuery] = useState({
     isQuerying: false,
@@ -33,9 +34,17 @@ const Search = () => {
   })
 
   useEffect(() => {
+    const searchUrl = props?.location?.search
+    var searchParams = new URLSearchParams(searchUrl)
+    const search = searchParams.get("s")
+    console.log(search)
+    search && updateState({ search })
+  }, [])
+
+  useEffect(() => {
     if (query.search) {
       clearTimeout(fetchRef.current)
-      fetchRef.current = setTimeout(fetchAPI, 2000)
+      fetchRef.current = setTimeout(fetchAPI, delayToFetch)
     }
   }, [query.search])
 

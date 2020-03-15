@@ -28,7 +28,7 @@ const Single = ({ data }) => {
           <Share title={title} link={href} />
           <img src={thumbnail} />
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
-          <Disqus url={href} id={id} />
+          {false && <Disqus url={href} id={id} />}
         </article>
       </div>
     </Wrapper>
