@@ -54,6 +54,11 @@ const Header = () => {
                 Início
               </Link>
             </li>
+            <li css={liStyle}>
+              <Link className="font-1" css={lightColor} to="/pesquisar">
+                Pesquisar
+              </Link>
+            </li>
           </ul>
         </nav>
       </Container>
