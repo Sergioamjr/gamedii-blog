@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
-import { useState, useEffect, useRef } from "react"
 import {
   pageTitle,
   secondTitle,
@@ -10,9 +9,7 @@ import {
 } from "../design"
 import Wrapper from "../components/Wrapper"
 import { replaceWpPrefix } from "../utils"
-
-const urlToFetch = "http://blog.gamedii.com.br/wp/wp-json/wp/v2/posts?search="
-const delayToFetch = 1000
+import { useFetchWPAPI } from "../hooks"
 
 const inputStyle = css`
   width: 100%;
@@ -24,55 +21,7 @@ const inputStyle = css`
 `
 
 const Search = props => {
-  const fetchRef = useRef(null)
-  const [query, setQuery] = useState({
-    isQuerying: false,
-    results: [],
-    hasError: false,
-    search: "",
-    hasFinished: false,
-  })
-
-  useEffect(() => {
-    const searchUrl = props?.location?.search
-    var searchParams = new URLSearchParams(searchUrl)
-    const search = searchParams.get("s")
-    console.log(search)
-    search && updateState({ search })
-  }, [])
-
-  useEffect(() => {
-    if (query.search) {
-      clearTimeout(fetchRef.current)
-      fetchRef.current = setTimeout(fetchAPI, delayToFetch)
-    }
-  }, [query.search])
-
-  const updateState = (obj = {}) => {
-    setQuery(v => ({
-      ...v,
-      ...obj,
-    }))
-  }
-
-  const fetchAPI = async () => {
-    try {
-      updateState({ isQuerying: true })
-      const response = await fetch(`${urlToFetch}${query.search}`)
-      const results = await response.json()
-      updateState({ isQuerying: false, results, hasFinished: true })
-    } catch (err) {
-      updateState({ isQuerying: false, hasFinished: true })
-    }
-  }
-
-  const updateSearchItem = ({ target: { value } }) => {
-    updateState({
-      results: [],
-      hasFinished: false,
-      search: value,
-    })
-  }
+  const [query, onTextChange] = useFetchWPAPI(props)
 
   return (
     <Wrapper small>
@@ -80,7 +29,7 @@ const Search = props => {
       <input
         css={inputStyle}
         placeholder="Pesquisa por palavra-chave"
-        onChange={updateSearchItem}
+        onChange={onTextChange}
         type="text"
         value={query.search}
       />
