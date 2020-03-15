@@ -8,6 +8,7 @@ import Share from "../components/Share"
 import Wrapper from "../components/Wrapper"
 import { returnLocationProperty } from "../utils"
 import Disqus from "../components/Discus"
+import Recommendation from "../components/Recommendation"
 
 const Single = ({ data }) => {
   const {
@@ -30,6 +31,7 @@ const Single = ({ data }) => {
           <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
           {false && <Disqus url={href} id={id} />}
         </article>
+        <Recommendation itens={data.allWordpressPost.edges} />
       </div>
     </Wrapper>
   )
@@ -39,11 +41,28 @@ export default Single
 
 Single.propTypes = {
   data: PropTypes.shape({
+    allWordpressPost: PropTypes.shape({
+      edges: PropTypes.arrayOf({
+        node: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          id: PropTypes.string.isRequired,
+          path: PropTypes.string.isRequired,
+          featured_media: PropTypes.shape({
+            localFile: PropTypes.shape({
+              childImageSharp: PropTypes.shape({
+                original: PropTypes.shape({
+                  src: PropTypes.string.isRequired,
+                }),
+              }),
+            }),
+          }),
+        }),
+      }),
+    }),
     wordpressPost: PropTypes.shape({
       content: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       featured_media: PropTypes.shape({
         localFile: PropTypes.shape({
@@ -75,6 +94,28 @@ export const pageQuery = graphql`
               width
               height
               src
+            }
+          }
+        }
+      }
+    }
+    allWordpressPost(limit: 3, filter: { id: { ne: $id } }) {
+      edges {
+        node {
+          id
+          title
+          path
+          featured_media {
+            alt_text
+            caption
+            localFile {
+              childImageSharp {
+                original {
+                  width
+                  height
+                  src
+                }
+              }
             }
           }
         }

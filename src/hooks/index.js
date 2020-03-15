@@ -14,7 +14,6 @@ export const useFetchWPAPI = props => {
   const [query, setQuery] = useState({
     isQuerying: false,
     results: [],
-    hasError: false,
     search: "",
     hasFinished: false,
   })

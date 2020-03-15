@@ -39,6 +39,11 @@ export const secondTitle = css`
   font-weight: bold;
 `
 
+export const secondTitleSmall = css`
+  ${secondTitle};
+  font-size: ${fontSize.small};
+`
+
 export const largeMgBottom = css`
   margin-bottom: 20px;
 `

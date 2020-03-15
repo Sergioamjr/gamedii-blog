@@ -1,15 +1,9 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core"
-import {
-  pageTitle,
-  secondTitle,
-  text,
-  linkStyle,
-  xLargeMgBottom,
-} from "../design"
+import { pageTitle, text } from "../design"
 import Wrapper from "../components/Wrapper"
-import { replaceWpPrefix } from "../utils"
 import { useFetchWPAPI } from "../hooks"
+import SearchItem from "../components/SearchItem"
 
 const inputStyle = css`
   width: 100%;
@@ -39,18 +33,12 @@ const Search = props => {
       )}
 
       {query.results.map((result, index) => (
-        <div key={index} css={xLargeMgBottom}>
-          <a href={replaceWpPrefix(result.link)}>
-            <h1 css={secondTitle}>{result.title.rendered}</h1>
-          </a>
-          <div
-            css={text}
-            dangerouslySetInnerHTML={{ __html: result.excerpt.rendered }}
-          />
-          <a css={linkStyle} href={replaceWpPrefix(result.link)}>
-            Ler mais
-          </a>
-        </div>
+        <SearchItem
+          key={index}
+          link={result.link}
+          excerpt={result.excerpt.rendered}
+          title={result.title.rendered}
+        />
       ))}
     </Wrapper>
   )
