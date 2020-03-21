@@ -50,12 +50,22 @@ const Header = () => {
         <nav css={alignCenter}>
           <ul css={justifyContent}>
             <li css={liStyle}>
-              <Link className="font-1" css={lightColor} to="/">
+              <Link
+                data-testid="home-link"
+                className="font-1"
+                css={lightColor}
+                to="/"
+              >
                 Início
               </Link>
             </li>
             <li css={liStyle}>
-              <Link className="font-1" css={lightColor} to="/pesquisar">
+              <Link
+                data-testid="search-link"
+                className="font-1"
+                css={lightColor}
+                to="/pesquisar"
+              >
                 Pesquisar
               </Link>
             </li>

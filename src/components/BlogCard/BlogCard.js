@@ -14,7 +14,7 @@ import { replaceWpPrefix } from "../../utils"
 
 const BlogCard = ({ title, thumbnail, excerpt, path, label, isOnCard }) => {
   return (
-    <div css={xLargeMgBottom}>
+    <div css={xLargeMgBottom} data-testid="blog-card-item">
       <Link to={`/${replaceWpPrefix(path)}`}>
         <img css={mgBottom} alt="thumbnail" src={thumbnail} />
       </Link>

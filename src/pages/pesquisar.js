@@ -19,8 +19,11 @@ const Search = props => {
 
   return (
     <Wrapper small>
-      <h2 css={pageTitle}>Pesquisar</h2>
+      <h2 data-testid="page-title" css={pageTitle}>
+        Pesquisar
+      </h2>
       <input
+        data-testid="input-search"
         css={inputStyle}
         placeholder="Pesquisa por palavra-chave"
         onChange={onTextChange}

@@ -6,7 +6,7 @@ import { replaceWpPrefix } from "./../../utils"
 
 const SearchItem = ({ link, title, excerpt }) => {
   return (
-    <div css={xLargeMgBottom}>
+    <div data-testid="search-result-item" css={xLargeMgBottom}>
       <a href={replaceWpPrefix(link)}>
         <h1 css={secondTitle}>{title}</h1>
       </a>

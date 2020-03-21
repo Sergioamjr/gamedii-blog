@@ -6,14 +6,18 @@ import PropTypes from "prop-types"
 import { grid, Row, pageTitle } from "./../design"
 import BlogCard from "./../components/BlogCard"
 import Wrapper from "../components/Wrapper"
+import { orderByDate } from "./../utils"
 
 const Home = props => {
   const data = props.data.allWordpressPost.edges
+
   return (
     <Wrapper>
-      <h2 css={pageTitle}>Publicações</h2>
+      <h2 css={pageTitle} data-testid="page-title">
+        Publicações
+      </h2>
       <div css={grid}>
-        {data.map(({ node }) => {
+        {orderByDate(data).map(({ node }) => {
           const { title, id, path, excerpt, featured_media } = node
           const thumbnail =
             featured_media.localFile.childImageSharp.original.src
@@ -43,6 +47,7 @@ Home.propTypes = {
           title: PropTypes.string.isRequired,
           id: PropTypes.string.isRequired,
           path: PropTypes.string.isRequired,
+          date: PropTypes.string.isRequired,
           excerpt: PropTypes.string.isRequired,
           featured_media: PropTypes.shape({
             localFile: PropTypes.shape({
@@ -67,6 +72,7 @@ export const pageQuery = graphql`
           id
           title
           path
+          date
           excerpt
           featured_media {
             alt_text

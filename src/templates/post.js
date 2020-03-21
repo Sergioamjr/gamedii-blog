@@ -25,10 +25,16 @@ const Single = ({ data }) => {
           Voltar
         </Link>
         <article className="post-content" css={xLargeMgBottom}>
-          <h2 css={pageTitle}>{title}</h2>
+          <h2 data-testid="article-title" css={pageTitle}>
+            {title}
+          </h2>
           <Share title={title} link={href} />
           <img src={thumbnail} />
-          <div css={text} dangerouslySetInnerHTML={{ __html: content }} />
+          <div
+            data-testid="article-content"
+            css={text}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
           {false && <Disqus url={href} id={id} />}
         </article>
         <Recommendation itens={data.allWordpressPost.edges} />
