@@ -3,10 +3,10 @@ import { returnLocationProperty } from "./../utils"
 
 const delayToFetch = 1000
 const urlProd = returnLocationProperty("origin")
-const urlMock = "https://blog.gamedii.com.br"
+const urlMock = "http://blog.gamedii.com.br"
 const WPAPISearch = "wp/wp-json/wp/v2/posts?search="
-// eslint-disable-next-line no-undef
-const isProd = process.env.NODE_ENV !== "development"
+const isProd =
+  process.env.NODE_ENV !== "development" && !urlProd.includes("127.0.0.1")
 const urlToFetch = `${isProd ? urlProd : urlMock}/${WPAPISearch}`
 
 export const useFetchWPAPI = props => {

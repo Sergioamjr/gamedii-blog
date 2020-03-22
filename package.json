@@ -28,7 +28,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "ttab": "^0.6.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -39,8 +40,11 @@
   ],
   "license": "MIT",
   "scripts": {
+    "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "server": "set NODE_ENV=local:server && http-server",
     "build": "gatsby build",
+    "build-and-test": "npm run build && npm run server",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",

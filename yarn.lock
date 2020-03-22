@@ -10755,7 +10755,7 @@ request@^2.83.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
-"request@github:cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16":
+request@cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16:
   version "2.88.1"
   resolved "https://codeload.github.com/cypress-io/request/tar.gz/b5af0d1fa47eec97ba980cde90a13e69a2afcd16"
   dependencies:
@@ -12221,6 +12221,11 @@ tsutils@^3.17.1:
   integrity sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
   dependencies:
     tslib "^1.8.1"
+
+ttab@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/ttab/-/ttab-0.6.1.tgz#72001a333d477a92c49f6cb0e83ae07984c66be5"
+  integrity sha512-9JvkYlhFMrmrgINQUn5ZJqVVtH+BDpGeFrDhlAaiR0/NgB4TfwU9gNv5Vwuel7gWs8wohEmwWiJuWPtV0swwyw==
 
 tty-browserify@0.0.0:
   version "0.0.0"
