@@ -42,7 +42,7 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "server": "set NODE_ENV=local:server && http-server",
+    "server": "http-server",
     "build": "gatsby build",
     "build-and-test": "npm run build && npm run server",
     "dev": "gatsby develop",
