@@ -16,7 +16,6 @@ const text = css`
   color: #333;
 `
 const Share = ({ link, title }) => {
-  console.log("link", link)
   if (!link) {
     return null
   }
@@ -25,7 +24,11 @@ const Share = ({ link, title }) => {
       <p css={text} className="font-1">
         Compartilhe com seus amigos
       </p>
-      <ul>
+      <ul
+        css={css`
+          padding: 0;
+        `}
+      >
         <li css={list}>
           <a
             target="_blank"
